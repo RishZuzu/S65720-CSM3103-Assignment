@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdownify</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="container">
+        <header class="d-flex justify-content-between align-items-center my-3">
+            <h1>Countdownify</h1>
+            <button id="settings-button" class="btn btn-secondary">⚙</button>
+        </header>
+
+        <!-- Home Screen -->
+        <div id="home-screen">
+            <ul id="events-list" class="list-group"></ul>
+            <button id="add-event-button" class="btn btn-primary fab">+</button>
+        </div>
+
+        <!-- Add Event Screen -->
+        <div id="add-event-screen" class="hidden">
+            <header class="d-flex justify-content-between align-items-center my-3">
+                <h2>Add Countdown</h2>
+                <button id="save-event-button" class="btn btn-success">SAVE</button>
+            </header>
+            <form id="event-form">
+                <div class="form-group">
+                    <label for="event-date">Select a date:</label>
+                    <input type="date" id="event-date" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="event-time">Select a time:</label>
+                    <input type="time" id="event-time" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="event-name">Name:</label>
+                    <input type="text" id="event-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="event-notes">Notes:</label>
+                    <textarea id="event-notes" class="form-control"></textarea>
+                </div>
+            </form>
+            <button id="back-home-button" class="btn btn-secondary">Back to Home</button>
+        </div>
+
+        <!-- Event Details Screen -->
+        <div id="event-details-screen" class="hidden">
+            <h2 id="event-name-detail"></h2>
+                <div id="countdown-timer" class="countdown-timer"></div>
+                <p id="event-date-detail"></p>
+                <p id="event-notes-detail"></p>
+            <button id="delete-event-button" class="btn btn-danger">Delete Event</button>
+            <button id="back-home-from-details-button" class="btn btn-secondary">Back to Home</button>
+        </div>
+
+        <!-- Settings Screen -->
+        <div id="settings-screen" class="hidden">
+            <header class="my-3">
+                <h2>Settings</h2>
+            </header>
+            <div class="form-group">
+                <label for="send-notifications">Send notifications:</label>
+                <input type="checkbox" id="send-notifications">
+            </div>
+            <div class="form-group">
+                <label for="date-format">Date format:</label>
+                <select id="date-format" class="form-control">
+                    <option value="dd/mm/yyyy">DD/MM/YYYY</option>
+                    <option value="mm/dd/yyyy">MM/DD/YYYY</option>
+                </select>
+            </div>
+            <button id="back-home-from-settings-button" class="btn btn-secondary">Back to Home</button>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyCNMamGgWcJSmp9bTcaq_8YOtZIb1wRt88",
+          authDomain: "countdownify-855ad.firebaseapp.com",
+          projectId: "countdownify-855ad",
+          storageBucket: "countdownify-855ad.appspot.com",
+          messagingSenderId: "364906612322",
+          appId: "1:364906612322:web:bad2776f407309b280f33b"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+      </script>
+
+</body>
+</html>
